@@ -1,4 +1,38 @@
+# config/train.yaml
 dataset:
   train_split: 0.9
   validation_split: 0.1
   random_seed: 42
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+
+training:
+  output_dir: outputs/checkpoints
+
+  num_epochs: 5
+
+  batch_size: 1
+  gradient_accumulation_steps: 8
+
+  learning_rate: 2e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.03
+
+  logging_steps: 10
+  eval_steps: 50
+  save_steps: 50
+
+  save_total_limit: 2
+
+  seed: 42
