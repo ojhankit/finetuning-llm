@@ -1,0 +1,4 @@
+dataset:
+  train_split: 0.9
+  validation_split: 0.1
+  random_seed: 42

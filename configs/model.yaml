@@ -1,0 +1,11 @@
+model:
+  name: Qwen/Qwen2.5-0.5B-Instruct
+  local_path: models/base/qwen2.5-0.5b-instruct
+
+tokenizer:
+  max_length: 512
+  padding: max_length
+  truncation: true
+
+cache:
+  huggingface: data/cache/huggingface
