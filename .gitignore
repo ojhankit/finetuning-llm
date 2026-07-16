@@ -18,3 +18,7 @@ data/cache/
 .ipynb_checkpoints/
 
 .DS_Store
+# Generated datasets
+data/tokenized/
+data/processed/**/cache-*.arrow
+data/raw/**/cache-*.arrow
