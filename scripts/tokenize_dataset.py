@@ -17,7 +17,7 @@ def main():
     logger.info("Loading configuration...")
 
     model_cfg = load_yaml("model.yaml")
-    train_cfg = load_yaml("train.yaml")
+    dataset_cfg = load_yaml("dataset.yaml")
 
     logger.info("Loading processed dataset...")
 
@@ -26,8 +26,8 @@ def main():
     logger.info("Creating train/validation split...")
 
     dataset = dataset.train_test_split(
-        test_size=train_cfg["dataset"]["validation_split"],
-        seed=train_cfg["dataset"]["random_seed"],
+        test_size=dataset_cfg["dataset"]["validation_split"],
+        seed=dataset_cfg["dataset"]["random_seed"],
     )
 
     dataset["validation"] = dataset.pop("test")

@@ -1,8 +1,4 @@
-# config/train.yaml
-dataset:
-  train_split: 0.9
-  validation_split: 0.1
-  random_seed: 42
+# configs/train.yaml
 
 lora:
   r: 8
@@ -19,8 +15,9 @@ lora:
 
 training:
   output_dir: outputs/checkpoints
+  device: cuda
 
-  num_epochs: 5
+  num_epochs: 2
 
   batch_size: 1
   gradient_accumulation_steps: 8
