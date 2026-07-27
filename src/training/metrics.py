@@ -69,9 +69,13 @@ def compute_rouge(
     Requires the `evaluate` library (already in pyproject.toml).
     """
 
-    import evaluate
-
-    rouge = evaluate.load("rouge")
+    try:
+        import evaluate
+        rouge = evaluate.load("rouge")
+    except ImportError as e:
+        raise RuntimeError(
+            "ROUGE evaluation requires: uv add rouge-score absl-py nltk"
+        ) from e
 
     results = rouge.compute(
         predictions=predictions,
